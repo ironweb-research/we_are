@@ -25,6 +25,10 @@ export function getPostBySlug(slug: string) {
   data.coverImage = data.coverImage.startsWith(BASE_PATH) ? data.coverImage : `${BASE_PATH}${data.coverImage}`;
   data.author.picture = data.author.picture.startsWith(BASE_PATH) ? data.author.picture : `${BASE_PATH}${data.author.picture}`;
   data.ogImage.url = data.ogImage.url.startsWith(BASE_PATH) ? data.ogImage.url : `${BASE_PATH}${data.ogImage.url}`;
+
+  console.log(`realSlug  . >>>>>>>>>>>: ${realSlug}`)
+  console.log(`fullPath  . >>>>>>>>>>>: ${fullPath}`)
+
   console.log(`BASE_PATH . >>>>>>>>>>>: ${BASE_PATH}`)
   return { ...data, slug: realSlug, content } as Post;
 }

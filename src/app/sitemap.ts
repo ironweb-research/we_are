@@ -1,26 +1,28 @@
-const globby = require("globby");
+import { getAllPosts } from "@/lib/api";
+import { url } from "inspector";
 
 export const revalidate = 3600; // hourly revalidation
 
-function addPage(page: string) {
-  const path = page
-    .replace("app", "")
-    .replace(".tsx", "")
-    .replace(".mdx", "")
-    .replace("/page", "");
-  return path;
-}
 export default async function sitemap() {
-  const pages = await globby([
-    "app/**/*{.js,jsx,ts,tsx,.mdx}",
-    "!app/_*.js",
-    "!app/{sitemap,layout}.{js,jsx,ts,tsx}",
-    "!app/api",
-  ]);
-  const routes = pages.map((page: string) => ({
-    url: `${process.env.WEBSITE_URL}${addPage(page)}`,
+  const posts = getAllPosts();
+
+  // const pages = await globby([
+  //   "src/app/**/*{.js,jsx,ts,tsx,.mdx}",
+  //   "!src/app/_*.js",
+  //   "!src/app/{sitemap,layout}.{js,jsx,ts,tsx}",
+  //   "!src/app/api",
+  // ]);
+  const routes = posts.map((post) => ({
+    url: `${process.env.WEBSITE_URL}${post.slug}.replace(/\.md$/, ""))`,
     lastModified: new Date().toISOString(),
   }));
 
+  console.log(`url per post                  >>>>>>>>>>>>>>>>: ${url}`)
+  console.log(`routes                        >>>>>>>>>>>>>>>>: ${{routes}}`)
+
+  // routes                        >>>>>>>>>>>>>>>>: [object Object]
+
+  // pages                         >>>>>>>>>>>>>>>>: src/app/page.tsx,src/app/contact/page.tsx, \
+  console.log(`process.env.WEBSITE_URL       >>>>>>>>>>>>>>>>: ${process.env.WEBSITE_URL}`)
   return [...routes]; // spread operator on [routes]
 }
