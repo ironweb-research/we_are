@@ -1,0 +1,18 @@
+import { text } from "stream/consumers";
+
+export default function Sitemap() { 
+    return null; 
+}
+
+
+export const getServerSideProps: GetServerSideProps<{}> = async (ctx) => {
+    ctx.res.setHeader('Content-Type', 'text/xml')
+    
+    const xml = await generateSitemap();
+    ctx.res.write(xml); 
+    ctx.res.end(); 
+    return { props: {},
+    }
+}
+
+generateSitemap()
