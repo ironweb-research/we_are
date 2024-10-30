@@ -15,4 +15,22 @@ export const getServerSideProps: GetServerSideProps<{}> = async (ctx) => {
     }
 }
 
-generateSitemap()
+async function generateSitemap(){ 
+    const pages = await getBlogPosts (
+        {order: 'recent'}
+        ); 
+        return `<?xml version="1.0" encoding="UTF-8"?> 
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+
+    ${pages 
+        .map((page) => {
+        return `<url> 
+            
+        <loc>${page.url}</loc> 
+        <lastmod>${format(new Date(page.updated_at), 'yyyy-MM-dd')}</lastmod> 
+        </url>`; 
+        }) 
+        .join()} 
+    </uclsst>`;
+}
