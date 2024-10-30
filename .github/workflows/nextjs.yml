@@ -129,3 +129,7 @@ jobs:
           echo "Present deployment directory----->: $(pwd)"
           echo "Advance check on all contents, incl hidden, are loaded onto present deployment directory"
           ls -lha
+      - name: Verify deployment url 
+        id: Verify-deployment-URL
+        run: |
+          echo "Deployment URL ---->: $(url)"
