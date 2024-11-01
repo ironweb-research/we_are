@@ -1,4 +1,3 @@
-// const fs = require("fs");
 import { getAllPosts } from "@/lib/api";
 import { BASE_URL, REPO_NAME } from "@/lib/constants";
 
