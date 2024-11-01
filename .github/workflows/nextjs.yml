@@ -132,4 +132,4 @@ jobs:
       - name: Verify deployment url 
         id: Verify-deployment-URL
         run: |
-          echo "Deployment URL ---->: $(url)"
+          echo "Deployment URL ---->: ${{ steps.deployment.outputs.page_url }}"
