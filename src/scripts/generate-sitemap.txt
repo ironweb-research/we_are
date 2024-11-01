@@ -1,13 +1,15 @@
-// const fs = require("fs");
+const fs = require("fs");
 import { getAllPosts } from "@/lib/api";
 
 async function generateSitemap() {
   const posts = getAllPosts();
   const routes = posts.map((post) => ({
     lastModified: new Date().format(page.updated_at, 'dd-MMM-yyyy hh:mm:ss'),
+    
   }));
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <?xml version="1.0" encoding="UTF-8"?> 
+  <lastmod>${format(new Date(page.updated_at), 'dd-MMM-yyyy')}</lastmod> 
   </urlset>`;
   fs.writeFileSync("public/sitemap.xml", sitemap);
 }
