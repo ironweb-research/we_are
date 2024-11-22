@@ -1,3 +1,5 @@
+// use in we_are main page
+// called by src/app/page.tsx
 // import Link from "next/link";
 import Image from "next/image";
 import { IRONWEB_PROFILE_LOGO_PNG_URL, IRONWEB_ANI_GIF_URL } from "@/lib/constants";

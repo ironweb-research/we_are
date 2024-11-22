@@ -1,4 +1,5 @@
-// use in every individual post
+// use in we_are/posts/every_individual_post
+// called by src/app/posts/[slug]/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import { IRONWEB_PROFILE_LOGO_PNG_URL } from "@/lib/constants";
