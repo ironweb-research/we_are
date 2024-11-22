@@ -1,3 +1,4 @@
+// use in every individual post
 import Link from "next/link";
 import Image from "next/image";
 import { IRONWEB_PROFILE_LOGO_PNG_URL } from "@/lib/constants";
