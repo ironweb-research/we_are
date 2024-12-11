@@ -20,7 +20,7 @@ const Header = () => {
         </Link>
       </div>
       <h4 className="text-lg md:text-left mt-5 md:pl-8">
-        Future is Secure.
+        Research | Develop | Solutioning 
       </h4>
     </div>
   );
