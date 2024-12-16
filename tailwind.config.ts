@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config: Config = {
   darkMode: "class",
@@ -41,6 +42,9 @@ const config: Config = {
       letterSpacing: {
         tighter: "-.04em",
       },
+      fontFamily: {
+				sans: ['Roboto', '"Segoe UI"', 'sans-serif', ...fontFamily.sans],
+			},
       fontSize: {
         "5xl": "2.5rem",
         "6xl": "2.75rem",
