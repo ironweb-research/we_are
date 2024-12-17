@@ -1,9 +1,9 @@
-import Footer from "@/app/_components/footer";
+import Footer from "@/app/_components/main/footer";
 import { BASE_URL, IRONWEB_ANI_GIF_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
-import { ThemeSwitcher } from "./_components/theme-switcher";
+import { ThemeSwitcher } from "./_components/main/theme-switcher";
 
 import "./globals.css";
 
