@@ -1,7 +1,7 @@
 import Container from "@/app/_components/container";
-import Alert from "@/app/_components/alert";
+import Alert from "@/app/_components/main_frame/alert";
 import { HeroPost } from "@/app/_components/hero-post";
-import { Intro } from "@/app/_components/intro";
+import { Intro } from "@/app/_components/main_frame/intro";
 import { MoreStories } from "@/app/_components/more-stories";
 import { getAllPosts } from "@/lib/api";
 
