@@ -119,24 +119,19 @@ jobs:
             echo "Advance check on workflow loaded onto /home/runner/work/_temp"
             ls -lha /home/runner/work/_temp
 
-
-      - name: test planting into artifact directory 
-        id: plant-file-to-artifacts-directory
+      - name: Upload main_frame in artifact dir to repo storage
+        id: upload_main_frame_to_repo_storage
         run: |
-          mkdir ./src/app/_components/main_frame/testfolder
-          echo "plant file1 to testfolder dir" > ./src/app/_components/main_frame/testfolder/test1.txt
-          echo "View all contents, recursive and incl hidden, are loaded ./src/app/_components/main_frame"
-          ls -Rlha ./src/app/_components/main_frame
           echo "use action bot"
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           echo "git add"
-          /usr/bin/git add ./src/app/_components/main_frame/testfolder
+          /usr/bin/git add ./src/app/_components/main_frame
           echo "git commit"
-          /usr/bin/git commit -m "add test1.txt file in testfolder"
+          /usr/bin/git commit -m "upload main_frame"
           echo "git push"
           /usr/bin/git push -u origin main
-
+    
   deploy:
     environment:
       name: github-pages
