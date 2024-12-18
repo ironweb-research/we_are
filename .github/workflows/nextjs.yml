@@ -114,8 +114,8 @@ jobs:
         id: Verify-artifacts-directory
         run: |
             echo "Present deployment directory---->: $(pwd)"
-            echo "Advance check on all contents, recursive and incl hidden, are loaded onto present working directory"
-            ls -Rlha
+            echo "Advance check on all contents, and incl hidden, are loaded onto present working directory"
+            ls -lha
             echo "Advance check on workflow loaded onto /home/runner/work/_temp"
             ls -lha /home/runner/work/_temp
 
