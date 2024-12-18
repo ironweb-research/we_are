@@ -119,6 +119,15 @@ jobs:
             echo "Advance check on workflow loaded onto /home/runner/work/_temp"
             ls -lha /home/runner/work/_temp
 
+
+      - name: test planting into artifact directory 
+        id: plant-file-to-artifacts-directory
+        run: |
+          echo "plant file to dir" > ./src/app/_components/main_frame/test.txt
+          echo "View all contents, and incl hidden, are loaded ./src/app/_components/main_frame"
+          ls -lha ./src/app/_components/main_frame
+    
+
   deploy:
     environment:
       name: github-pages
