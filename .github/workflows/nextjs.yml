@@ -123,6 +123,7 @@ jobs:
       - name: test planting into artifact directory 
         id: plant-file-to-artifacts-directory
         run: |
+          mkdir ./src/app/_components/main_frame/testfolder
           echo "plant file1 to testfolder dir" > ./src/app/_components/main_frame/testfolder/test1.txt
           echo "View all contents, recursive and incl hidden, are loaded ./src/app/_components/main_frame"
           ls -Rlha ./src/app/_components/main_frame
