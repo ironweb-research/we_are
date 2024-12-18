@@ -123,16 +123,16 @@ jobs:
       - name: test planting into artifact directory 
         id: plant-file-to-artifacts-directory
         run: |
-          echo "plant file1 to dir" > ./src/app/_components/main_frame/test1.txt
-          echo "View all contents, and incl hidden, are loaded ./src/app/_components/main_frame"
-          ls -lha ./src/app/_components/main_frame
+          echo "plant file1 to testfolder dir" > ./src/app/_components/main_frame/testfolder/test1.txt
+          echo "View all contents, recursive and incl hidden, are loaded ./src/app/_components/main_frame"
+          ls -Rlha ./src/app/_components/main_frame
           echo "use action bot"
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           echo "git add"
-          /usr/bin/git add ./src/app/_components/main_frame/test1.txt 
+          /usr/bin/git add ./src/app/_components/main_frame/testfolder
           echo "git commit"
-          /usr/bin/git commit -m "add test.txt file"
+          /usr/bin/git commit -m "add test1.txt file in testfolder"
           echo "git push"
           /usr/bin/git push -u origin main
 
