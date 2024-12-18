@@ -39,8 +39,16 @@ jobs:
           repository: ironweb-research/ironweb-research.github.io
           sparse-checkout: |
             src/app/_components/main_frame
+          sparse-checkout-cone-mode: false
           token: ${{ secrets.MAIN_FRAME_TOKEN }}
           path: temp_main_frame
+
+      # - name: Move main-frame components to correct level and clean up
+      #   id: move_main_frame_components
+      #   run: |
+      #     mv ./temp_main_frame/src/app/_components/main_frame/*.* ./src/app/_components/main_frame
+      #     rm -rf ./temp_main_frame
+
       - name: Verify PWD 
         id: present-working-directory
         run: |
@@ -51,9 +59,9 @@ jobs:
           ls -lha ./.github
           echo "Advance check on blog post loaded onto ./_posts"
           ls -lha ./_posts
-          echo "Advance check on blog post loaded onto ./temp_main_frame"
+          echo "Advance check on blog post loaded onto recursive ./temp_main_frame"
           ls -Rlha ./temp_main_frame
-          echo "Advance check on blog post loaded onto ./src/app"
+          echo "Advance check on blog post loaded onto recursive ./src/app"
           ls -Rlha ./src/app
 
       - name: Detect package manager
