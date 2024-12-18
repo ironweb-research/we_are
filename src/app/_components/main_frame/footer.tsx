@@ -10,7 +10,7 @@ export function Footer() {
             Statically Generated with Next.js.
           </h3>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-          <a
+            <a
               href="https://github.com/ironweb-research"
               className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-6 lg:px-4 duration-200 transition-colors mb-4 lg:mb-0"
             >

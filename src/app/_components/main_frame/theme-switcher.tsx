@@ -1,6 +1,8 @@
 "use client";
 
 import styles from "./switch.module.css";
+import { SystemModeIcon, DarkModeIcon, LightModeIcon } from "./icons_svg"
+
 import { memo, useEffect, useState } from "react";
 
 declare global {
@@ -9,7 +11,7 @@ declare global {
 
 type ColorSchemePreference = "system" | "dark" | "light";
 
-const STORAGE_KEY = "nextjs-blog-starter-theme";
+const STORAGE_KEY = "this-theme";
 const modes: ColorSchemePreference[] = ["system", "dark", "light"];
 
 /** to reuse updateDOM function defined inside injected script */
@@ -88,7 +90,24 @@ const Switch = () => {
       suppressHydrationWarning
       className={styles.switch}
       onClick={handleModeSwitch}
-    />
+    >
+      {mode === "system" && (
+        <div className={styles['system-icon']}>
+          <SystemModeIcon />
+        </div>
+      )}
+      {mode === "dark" && (
+        <div className={styles['dark-icon']}>
+          <DarkModeIcon />
+        </div>
+      )}
+      {mode === "light" && (
+        <div className={styles['light-icon']}>
+          <LightModeIcon />
+        </div>
+      )}
+    </button>
+
   );
 };
 

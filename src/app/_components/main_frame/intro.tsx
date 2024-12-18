@@ -1,5 +1,3 @@
-// use in we_are main page
-// called by src/app/page.tsx
 // import Link from "next/link";
 import Image from "next/image";
 import { IRONWEB_PROFILE_LOGO_PNG_URL } from "@/lib/constants";
@@ -17,7 +15,7 @@ export function Intro() {
         />
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-      Research | Develop | Solution
+        Research | Develop | Solution  
       </h4>
     </section>
   );
