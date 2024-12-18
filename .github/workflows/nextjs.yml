@@ -123,13 +123,17 @@ jobs:
       - name: test planting into artifact directory 
         id: plant-file-to-artifacts-directory
         run: |
-          echo "plant file to dir" > ./src/app/_components/main_frame/test.txt
+          echo "plant file1 to dir" > ./src/app/_components/main_frame/test1.txt
           echo "View all contents, and incl hidden, are loaded ./src/app/_components/main_frame"
           ls -lha ./src/app/_components/main_frame
+          echo "use action bot"
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          /usr/bin/git add ./src/app/_components/main_frame/test.txt 
+          echo "git add"
+          /usr/bin/git add ./src/app/_components/main_frame/test1.txt 
+          echo "git commit"
           /usr/bin/git commit -m "add test.txt file"
+          echo "git push"
           /usr/bin/git push -u origin main
 
   deploy:
