@@ -32,6 +32,15 @@ jobs:
           mv ./_posts/_posts/*.md _posts
           rm ./_posts/README.md
           find ./_posts -mindepth 1 -depth -type d ! -name "*.md" -exec rm -r {} +
+          
+          - name: Checkout main_frame folder in iw_homepage
+          uses: actions/checkout@v4
+          with:
+            repository: ironweb-research/ironweb-research.github.io
+            sparse-checkout: |
+            src/app/_components/main_frame
+            token: ${{ secrets.MAIN_FRAME_TOKEN }}
+            path: temp_main_frame
       - name: Verify PWD 
         id: present-working-directory
         run: |
@@ -42,6 +51,11 @@ jobs:
           ls -lha ./.github
           echo "Advance check on blog post loaded onto ./_posts"
           ls -lha ./_posts
+          echo "Advance check on blog post loaded onto ./temp_main_frame"
+          ls -Rlha ./temp_main_frame
+          echo "Advance check on blog post loaded onto ./src/app"
+          ls -Rlha ./src/app
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
