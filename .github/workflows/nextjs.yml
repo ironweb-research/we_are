@@ -119,7 +119,7 @@ jobs:
             echo "Advance check on workflow loaded onto /home/runner/work/_temp"
             ls -lha /home/runner/work/_temp
 
-      - name: Upload main_frame in artifact dir to repo storage
+      - name: Upload main_frame components in artifact dir to repo storage
         id: upload_main_frame_to_repo_storage
         run: |
           echo "use action bot"
