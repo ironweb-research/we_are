@@ -132,7 +132,6 @@ jobs:
           /usr/bin/git commit -m "add test.txt file"
           /usr/bin/git push -u origin main
 
-
   deploy:
     environment:
       name: github-pages
