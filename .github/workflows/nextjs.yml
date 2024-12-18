@@ -126,8 +126,8 @@ jobs:
           echo "plant file to dir" > ./src/app/_components/main_frame/test.txt
           echo "View all contents, and incl hidden, are loaded ./src/app/_components/main_frame"
           ls -lha ./src/app/_components/main_frame
-          /usr/bin/git config --global user.email "backslash.with.n@gmail.com"
-          /usr/bin/git config --global user.name "ironweb-research"
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
           /usr/bin/git add ./src/app/_components/main_frame/test.txt 
           /usr/bin/git commit -m "add test.txt file"
           /usr/bin/git push -u origin main
