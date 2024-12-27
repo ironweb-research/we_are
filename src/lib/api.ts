@@ -4,11 +4,9 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-// const postsDirectory = join(process.cwd(), "_posts");
-
 function useBasePath(): string {
   return process.env.GITHUB_ACTIONS ? REPO_NAME : '';
-}
+} //add repo prod, dev at localhost to ignore
 
 export function postsDirectory(): string{
   return join(process.cwd(), "_posts");
@@ -30,7 +28,7 @@ export function getPostBySlug(slug: string) {
   data.author.picture = data.author.picture.startsWith(BASE_PATH) ? data.author.picture : `${BASE_PATH}${data.author.picture}`;
   data.ogImage.url = data.ogImage.url.startsWith(BASE_PATH) ? data.ogImage.url : `${BASE_PATH}${data.ogImage.url}`;
 
-  console.log(`postsDir  . >>>>>>>>>>>: ${postsDirectory}`)
+  console.log(`postsDir  . >>>>>>>>>>>: ${postsDirectory()}`)
   console.log(`BASE_PATH . >>>>>>>>>>>: ${BASE_PATH}`)
   return { ...data, slug: realSlug, content } as Post;
 }

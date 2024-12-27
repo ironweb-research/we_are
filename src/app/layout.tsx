@@ -9,7 +9,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
   title: 'Ironweb-Research ~ Future is Secure',
   description: 'Our Startup aims to integrate blockchain technology to secure networking systems.',
