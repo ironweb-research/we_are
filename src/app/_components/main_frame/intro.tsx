@@ -14,9 +14,9 @@ export function Intro() {
           className="mr-2" // Add "logo-image" class, if need to toggle logo
         />
       </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
+      <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         Research | Develop | Solution  
-      </h4>
+      </h2>
     </section>
   );
 }

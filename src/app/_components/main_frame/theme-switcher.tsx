@@ -1,8 +1,6 @@
 "use client";
 
 import styles from "./switch.module.css";
-import { SystemModeIcon, DarkModeIcon, LightModeIcon } from "./icons_svg"
-
 import { memo, useEffect, useState } from "react";
 
 declare global {
@@ -91,21 +89,6 @@ const Switch = () => {
       className={styles.switch}
       onClick={handleModeSwitch}
     >
-      {mode === "system" && (
-        <div className={styles['system-icon']}>
-          <SystemModeIcon />
-        </div>
-      )}
-      {mode === "dark" && (
-        <div className={styles['dark-icon']}>
-          <DarkModeIcon />
-        </div>
-      )}
-      {mode === "light" && (
-        <div className={styles['light-icon']}>
-          <LightModeIcon />
-        </div>
-      )}
     </button>
 
   );
