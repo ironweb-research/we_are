@@ -37,13 +37,13 @@ export default function RootLayout({
           rel="icon"
           type="image/png"
           sizes="32x35"
-          href={`${BASE_URL}/assets/logo/ironweb_icon_32x35.png`} 
+          href={`${BASE_URL}/assets/logo/favicon_32x32.png`} 
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x17"
-          href={`${BASE_URL}/assets/logo/ironweb_icon_16x17.png`} 
+          href={`${BASE_URL}/assets/logo/favicon_16x16.png`} 
         />
         <link rel="manifest" href={`${BASE_URL}/assets/logo/site.webmanifest`}/>
         <link
@@ -51,7 +51,7 @@ export default function RootLayout({
           href={`${BASE_URL}/assets/logo/safari-pinned-tab.svg`} 
           color="#000000"
         />
-        <link rel="shortcut icon" href={`${BASE_URL}/assets/logo/ironweb_icon.ico`}  />
+        <link rel="icon" href={`${BASE_URL}/assets/logo/favicon.ico`}  />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="msapplication-config"
