@@ -127,7 +127,7 @@ jobs:
           git config --local user.name github-actions[bot]
           git config --local user.email github-actions[bot]@users.noreply.github.com
           echo "zeroize main_frame content"
-          /usr/bin git rm -rf ./src/app/_components/main_frame/*.*
+          /usr/bin/git rm -rf ./src/app/_components/main_frame/*.*
           echo "git add"
           /usr/bin/git add ./src/app/_components/main_frame
           echo "git commit"
