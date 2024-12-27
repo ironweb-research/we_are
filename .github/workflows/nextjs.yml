@@ -33,30 +33,6 @@ jobs:
           rm ./_posts/README.md
           find ./_posts -mindepth 1 -depth -type d ! -name "*.md" -exec rm -r {} +
           
-      - name: Checkout main_frame folder in iw_homepage to sync sub-domain we_are
-        uses: actions/checkout@v4
-        with:
-          repository: ironweb-research/ironweb-research.github.io
-          sparse-checkout: |
-            src/app/_components/main_frame
-          sparse-checkout-cone-mode: false
-          token: ${{ secrets.MAIN_FRAME_TOKEN }}
-          path: temp_main_frame
-
-      - name: Move main_frame components to correct level and clean up temp folder
-        id: move_main_frame_components
-        run: |
-          echo "temp_main_frame"
-          ls -lh ./temp_main_frame/src/app/_components/main_frame/
-          echo "prior_main_frame"
-          ls -lh ./src/app/_components/main_frame/
-
-          rm -rf ./src/app/_components/main_frame/*.*
-          mv ./temp_main_frame/src/app/_components/main_frame/*.* ./src/app/_components/main_frame
-          rm -rf ./temp_main_frame
-          echo "after_main_frame"
-          ls -lh ./src/app/_components/main_frame/
-
       - name: Verify PWD 
         id: present-working-directory
         run: |
@@ -126,19 +102,6 @@ jobs:
             ls -lha
             echo "Advance check on workflow loaded onto /home/runner/work/_temp"
             ls -lha /home/runner/work/_temp
-
-      - name: Upload main_frame components in artifact dir to repo storage
-        id: upload_main_frame_to_repo_storage
-        run: |
-          echo "use action bot"
-          git config --local user.name github-actions[bot]
-          git config --local user.email github-actions[bot]@users.noreply.github.com
-          echo "git add"
-          /usr/bin/git add ./src/app/_components/main_frame
-          echo "git commit"
-          /usr/bin/git commit -m "refresh main_frame contents at repo"
-          echo "git push"
-          /usr/bin/git push -u origin main
     
   deploy:
     environment:
