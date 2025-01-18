@@ -14,7 +14,7 @@ export function postsDirectory(): string{
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory());
-} // synchronously read the contents of a given directory
+} // returns filename with ext
 
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, "");
@@ -34,7 +34,7 @@ export function getPostBySlug(slug: string) {
 }
 
 export function getAllPosts(): Post[] {
-  const slugs = getPostSlugs();
+  const slugs = getPostSlugs(); // returns list of md/mdx filenames with ext
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
     // sort posts by date in descending order
