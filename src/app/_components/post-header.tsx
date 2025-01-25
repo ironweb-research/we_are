@@ -9,9 +9,11 @@ type Props = {
   coverImage: string;
   date: string;
   author: Author;
+  subPath: string;
+  postStatus: string;
 };
 
-export function PostHeader({ title, coverImage, date, author }: Props) {
+export function PostHeader({ title, coverImage, date, author, subPath, postStatus }: Props) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -19,14 +21,14 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
         <Avatar name={author.name} picture={author.picture} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
+        <CoverImage subPath={subPath} title={title} src={coverImage} />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
           <Avatar name={author.name} picture={author.picture} />
         </div>
         <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
+          {postStatus} <DateFormatter dateString={date} />
         </div>
       </div>
     </>

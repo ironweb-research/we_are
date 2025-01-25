@@ -17,7 +17,7 @@ export function Footer() {
               View on our GitHub
             </a>
             <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+              href="https://github.com/ironweb-research"
               className="mx-3 font-bold hover:underline"
             >
               Contact us for demo

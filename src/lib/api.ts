@@ -8,17 +8,17 @@ function useBasePath(): string {
   return process.env.GITHUB_ACTIONS ? REPO_NAME : '';
 } //add repo prod, dev at localhost to ignore
 
-export function postsDirectory(): string{
-  return join(process.cwd(), "_posts");
+export function postsDirectory(subPath: string): string {
+  return join(process.cwd(), subPath);
 }
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory());
+export function getPostSlugs(subPath: string) {
+  return fs.readdirSync(postsDirectory(subPath));
 } // returns filename with ext
 
-export function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory(), `${realSlug}.md`);
+export function getPostBySlug(slug: string, subPath: string){
+  const realSlug = slug.replace(/\.mdx$/, "");
+  const fullPath = join(postsDirectory(subPath), `${realSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   const BASE_PATH = useBasePath();
@@ -28,16 +28,11 @@ export function getPostBySlug(slug: string) {
   data.author.picture = data.author.picture.startsWith(BASE_PATH) ? data.author.picture : `${BASE_PATH}${data.author.picture}`;
   data.ogImage.url = data.ogImage.url.startsWith(BASE_PATH) ? data.ogImage.url : `${BASE_PATH}${data.ogImage.url}`;
 
-  console.log(`postsDir  . >>>>>>>>>>>: ${postsDirectory()}`)
-  console.log(`BASE_PATH . >>>>>>>>>>>: ${BASE_PATH}`)
   return { ...data, slug: realSlug, content } as Post;
 }
 
-export function getAllPosts(): Post[] {
-  const slugs = getPostSlugs(); // returns list of md/mdx filenames with ext
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+export function getAllPosts(subPath: string): Post[] {
+  const slugs = getPostSlugs(subPath); // returns list of md/mdx filenames with ext
+  const posts = slugs.map((slug) => getPostBySlug(slug, subPath));
+  return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 }

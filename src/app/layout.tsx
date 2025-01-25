@@ -1,3 +1,4 @@
+import Alert from "@/app/_components/main_frame/alert";
 import Footer from "@/app/_components/main_frame/footer";
 import { BASE_URL, IRONWEB_ANI_GIF_URL } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -61,8 +62,9 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href={`${BASE_URL}/feed.xml`}/>
       </head>
       <body
-        className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
-      >
+        className={cn(inter.className, "bg-slate-50	text-sky-700 dark:bg-slate-900 dark:text-slate-300")}
+        >
+        <Alert/>
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
         <Footer />
