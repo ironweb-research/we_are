@@ -1,16 +1,13 @@
 // pull from private repo: [tkokhing/topic_post]
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import Container from "@/app/_components/container";
 import { PostHeader } from "@/app/_components/post-header";
 import SubpageHeader from "@/app/_components/main_frame/subpage-header";
 import { SectionSeparator } from "@/app/_components/section-separator";
-// import markdownToHtml from "@/lib/markdownToHtml";
-// import { PostBody } from "@/app/_components/post-body";
-// import markdownStyles from "@/app/_components/markdown-styles.module.css";
+import { PostBody } from "@/app/_components/post-body";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -32,12 +29,7 @@ export default async function Post(props: Params) {
             subPath={post.subPath}
             postStatus={post.postStatus}
           />
-            <div className="prose prose-lg md:prose-lg lg:prose-lg mx-auto prose-headings:text-indigo-900 dark:prose-headings:text-slate-100">
-              <div className="prose-a:text-blue-600 dark:prose-a:text-blue-300 dark:text-slate-300 prose dark:prose-invert">
-                <MDXRemote source={post.content || ""}  />
-              </div>
-            </div>
-            {/* <PostBody content={content} /> */}
+          <PostBody content={post.content} />
         </article>
       </Container>
     </main>
