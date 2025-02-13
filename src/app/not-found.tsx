@@ -8,7 +8,7 @@ export default function NotFoundPage() {
       <Container>
       <Intro />
       <SectionSeparator />
-      <h2 className="text-center md:text-center text-lg mt-5 md:pl-8">
+      <h2 className="text-lg text-center md:text-center mt-5 md:pl-8">
         Page not found. Click{" "}
       <a
         href="https://ironweb-research.github.io/"
