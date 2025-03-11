@@ -3,7 +3,7 @@ import { EXAMPLE_PATH } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-slate-800">
+    <footer className="bg-neutral-200 border-t border-neutral-200 dark:bg-zinc-800">
       <Container>
         <div className="py-8 flex flex-col lg:flex-row items-center">
           <h3 className="text-2xl lg:text-[1.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-4 lg:mb-0 lg:pr-4 lg:w-1/2">
@@ -17,7 +17,7 @@ export function Footer() {
               View on our GitHub
             </a>
             <a
-              href="https://github.com/ironweb-research"
+              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
               className="mx-3 font-bold hover:underline"
             >
               Contact us for demo

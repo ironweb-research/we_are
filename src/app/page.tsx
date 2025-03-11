@@ -14,7 +14,6 @@ export default function Index() {
       <Container>
         <Intro />
         <SectionSeparator />
-        Blog Main Page
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}
